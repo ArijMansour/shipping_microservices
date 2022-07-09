@@ -1,0 +1,16 @@
+version: '2'
+services:
+  shipping-rabbitmq:
+    image: rabbitmq
+    hostname: rabbitmq
+    restart: always
+    #volumes:
+      #- ./database:/data
+    ports:
+      - "5672:5672"
+  shipping:
+    image: arijmansour/pfe_shipping_microservices:latest
+    hostname: pfe_shipping_microservices
+    restart: always
+    ports:
+      - "8081:80"
